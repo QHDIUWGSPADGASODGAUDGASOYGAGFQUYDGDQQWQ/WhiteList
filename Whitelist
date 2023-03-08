@@ -99,10 +99,10 @@ function whitelist.data(plr)
 						until game.Workspace.Players:FindFirstChild(plr.Name)
 						local InGameDisplay = game.Workspace.Players[plr.Name].Humanoid.DisplayName
 
-						if string.match(InGameDisplay, "👑" or "🌟" or "🌑" or "🥶") then
+						if string.match(InGameDisplay, "👑 💫" or "⭐") then
 							game.Workspace.Players[plr.Name].Humanoid.DisplayName = InGameDisplay
 						else
-							game.Workspace.Players[plr.Name].Humanoid.DisplayName = "[🥶] "..InGameDisplay
+							game.Workspace.Players[plr.Name].Humanoid.DisplayName = "[] "..InGameDisplay
 						end
 					end
 				end
@@ -141,7 +141,7 @@ function whitelist.data(plr)
 			for _, z in pairs(game.Workspace.Players:GetChildren()) do
 				if z.Name == v then
 					local OldDisplayName = game.Workspace.Players[v].Humanoid.DisplayName
-					if string.match(OldDisplayName, "👑" or "🌟" or "🌑" or "⭐") then
+					if string.match(OldDisplayName, "👑 💫" or "⭐") then
 						game.Workspace.Players[v].Humanoid.DisplayName = OldDisplayName
 					else
 						game.Workspace.Players[v].Humanoid.DisplayName = "[⭐] "..OldDisplayName
