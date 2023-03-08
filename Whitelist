@@ -1,0 +1,155 @@
+local whitelist = {}
+
+local Player = game:GetService("Players").LocalPlayer.Name
+
+local UserId = game:GetService("Players"):GetUserIdFromNameAsync(Player)
+
+local whitelistedid = {
+	-- friends
+  		324270620, -- Ace (Szpxh)
+      3785338382, -- SeanDreamss
+      4030061248, -- SxeaDahood
+      1736601468, -- RaynXP
+	-- boosters
+
+	-- robux bought
+
+	-- giveaway
+}
+
+local whitelistednames = {
+	-- friends
+
+	-- boosters
+  
+	-- robux bought
+
+	-- giveaway
+		
+
+}
+
+function IsWhitelisted()
+	return not not table.find(whitelistedid, UserId)
+end
+
+function whitelist.data(plr)
+	if (IsWhitelisted(plr)) then
+		if game.PlaceId == 2788229376 then
+			local Player = game.Players.LocalPlayer
+			local PlayerDisplayName = Player.DisplayName
+			game.Workspace.Players[Player.Name].Humanoid.DisplayName = "[⭐] "..PlayerDisplayName
+			getgenv().Whitelisted = "Whitelisted"
+		else
+			getgenv().Whitelisted = "Whitelisted"
+		end
+	else
+		getgenv().Whitelisted = "Un-Whitelisted"
+		local PlayerC = game:GetService("Players").LocalPlayer
+
+		PlayerC:Kick("You're not whitelisted. Buy whitelist at our server https://discord.gg/Y7QhKfnpn3")
+		error(PlayerC.Name.." is not whitelisted.")
+	end
+
+	if game.PlaceId == 2788229376 then
+		game:GetService'Players'.PlayerAdded:Connect(function(plr)
+			game:GetService'Players'[plr.Name].CharacterAdded:Connect(function(char)
+				repeat
+					wait()
+				until game:GetService'Players'[plr.Name].Character
+
+				if plr.UserId == 4030061248 then
+					local OldDisplayName = plr.DisplayName
+					repeat
+						wait()
+					until game.Workspace.Players:FindFirstChild("xomieheart")
+					game.Workspace.Players.SxeaDahood.Humanoid.DisplayName = "[👑 💫] "..OldDisplayName
+				end
+
+				if plr.UserId == 1736601468 then
+					local OldDisplayName = plr.DisplayName
+					repeat
+						wait()
+					until game.Workspace.Players:FindFirstChild("showdistrict")
+					game.Workspace.Players.RaynXP.Humanoid.DisplayName = "[👑 💫] "..OldDisplayName
+				end
+
+				if plr.UserId == 3785338382 then
+					local OldDisplayName = plr.DisplayName
+					repeat
+						wait()
+					until game.Workspace.Players:FindFirstChild("burntsmiths")
+					game.Workspace.Players.SeanDreamss.Humanoid.DisplayName = "[👑 💫] "..OldDisplayName
+				end
+
+				if plr.UserId == 324270620 then
+					local OldDisplayName = plr.DisplayName
+					repeat
+						wait()
+					until game.Workspace.Players:FindFirstChild("PlayBartYT")
+					game.Workspace.Players.Szpxh.Humanoid.DisplayName = "[👑 💫] "..OldDisplayName
+				end
+        
+				for i, v in pairs(whitelistedid) do
+					if plr.UserId == v then
+						local OldDisplayName = plr.DisplayName
+
+						repeat
+							wait()
+						until game.Workspace.Players:FindFirstChild(plr.Name)
+						local InGameDisplay = game.Workspace.Players[plr.Name].Humanoid.DisplayName
+
+						if string.match(InGameDisplay, "👑" or "🌟" or "🌑" or "🥶") then
+							game.Workspace.Players[plr.Name].Humanoid.DisplayName = InGameDisplay
+						else
+							game.Workspace.Players[plr.Name].Humanoid.DisplayName = "[🥶] "..InGameDisplay
+						end
+					end
+				end
+			end)
+		end)
+
+		for _, v in pairs(game.Workspace.Players:GetChildren()) do
+			if v.Name == "SxeaDahood" then
+				local OldDisplayName = game.Workspace.Players.xomieheart.Humanoid.DisplayName
+				game.Workspace.Players.SxeaDahood.Humanoid.DisplayName = "[👑 💫] "..OldDisplayName
+			end
+		end
+
+		for _, v in pairs(game.Workspace.Players:GetChildren()) do
+			if v.Name == "RaynXP" then
+				local OldDisplayName = game.Workspace.Players.showdistrict.Humanoid.DisplayName
+				game.Workspace.Players.RaynXP.Humanoid.DisplayName = "[👑 💫] "..OldDisplayName
+			end
+		end
+
+		for _, v in pairs(game.Workspace.Players:GetChildren()) do
+			if v.Name == "SeanDreamss" then
+				local OldDisplayName = game.Workspace.Players.burntsmiths.Humanoid.DisplayName
+				game.Workspace.Players.SeanDreamss.Humanoid.DisplayName = "[👑 💫] "..OldDisplayName
+			end
+		end
+
+		for _, v in pairs(game.Workspace.Players:GetChildren()) do
+			if v.Name == "Szpxh" then
+				local OldDisplayName = game.Workspace.Players.PlayBartYT.Humanoid.DisplayName
+				game.Workspace.Players.Szpxh.Humanoid.DisplayName = "[👑 💫] "..OldDisplayName
+			end
+		end
+
+		for i, v in pairs(whitelistednames) do
+			for _, z in pairs(game.Workspace.Players:GetChildren()) do
+				if z.Name == v then
+					local OldDisplayName = game.Workspace.Players[v].Humanoid.DisplayName
+					if string.match(OldDisplayName, "👑" or "🌟" or "🌑" or "⭐") then
+						game.Workspace.Players[v].Humanoid.DisplayName = OldDisplayName
+					else
+						game.Workspace.Players[v].Humanoid.DisplayName = "[⭐] "..OldDisplayName
+					end
+				end
+			end
+		end
+	end
+end
+
+return whitelist
